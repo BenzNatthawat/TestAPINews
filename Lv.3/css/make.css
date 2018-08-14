@@ -1,0 +1,73 @@
+html{
+	font-size: 1.25em;
+}
+body{
+	padding: 50px 20px;
+}
+header{
+	border-top-left-radius: 0.25rem;
+	border-top-right-radius: 0.25rem;
+	padding: 5px;
+	background: #dedede;
+}
+footer{
+	border-bottom-left-radius: 0.25rem;
+	border-bottom-right-radius: 0.25rem;
+	padding: 5px;
+}
+.news{
+	margin: 10px;
+}
+.news .header{
+	border-top-left-radius: 0.25rem;
+	border-top-right-radius: 0.25rem;
+	padding: 5px;
+	background: #dedede;
+}
+.news .body{
+	border-bottom-left-radius: 0.25rem;
+	border-bottom-right-radius: 0.25rem;
+	padding: 5px;
+}
+.border{
+	background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+}
+.button{
+	border-radius: 3px;
+	line-height: 1.5;
+	padding: 0.2rem 0.8rem;
+	vertical-align: top;
+	text-decoration: none;
+}
+.float-r{	
+	float: right;
+}
+.button.is-blue {
+	background-color: #3273dc;
+	color: #fff;
+}
+.button.is-green {
+	background-color: #23d160;
+	color: #fff;
+}
+.button.is-light {
+  background-color: whitesmoke;
+  color: #363636;
+}
+.button.is-red {
+  background-color: #ff3860;
+  color: #fff;
+}
+
+input[type=text], textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+	border-radius: 0.25rem;
+}
+
+.form-input{
+	margin: 20px 50px;
+}

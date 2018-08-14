@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>News Post System</title>
+	<link rel="stylesheet" href="../css/make.css">
+
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+		<header class="border">
+			logo
+		</header>
+		<main class="border">
+			<form id="add" action="">
+				<div class="form-input">
+					<label for="Title">Title</label>
+					<input id="Title" name="title" type="text">
+				</div>
+				<div class="form-input">
+					<label for="Detail">Detail</label>
+					<textarea name="detail" id="Detail"rows="10"></textarea>
+				</div>
+				<div class="form-input">
+					<a href="" class="button is-light">CANCEL</a>
+					<button type="submit" class="button is-green">SAVE</button>
+				</div>
+			</form>
+		</main>
+		<footer class="border">Footer</footer>
+
+</body>
+
+<script type="text/javascript">
+$('form').on('submit',function(e){
+
+var request = new XMLHttpRequest();
+var url = "https://agile-cliffs-83142.herokuapp.com/api/news";
+request.open("POST", url, true);
+request.setRequestHeader("Content-Type", "application/json");
+request.onreadystatechange = function () {
+    if (request.readyState === 4 && request.status === 200) {
+        var json = JSON.parse(request.responseText);
+        console.log(json.title + ", " + json.detail);
+    }
+};
+
+var data = JSON.stringify({"title": $('#Title').val(), "detail": $('#Detail').val()});
+console.log(request.send(data));
+alert(data);
+// request.send(data);
+	});	
+
+</script>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>News Post System</title>
+	<link rel="stylesheet" href="../css/make.css">
+
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+		<header class="border">
+			logo
+			<a href="add-news.html" class="button is-blue float-r">ADD</a>
+		</header>
+		<main class="border">
+			<form id="add">
+				<div class="form-input">
+					<label for="Title">Title</label>
+					<input id="Title" name="title" type="text">
+				</div>
+				<div class="form-input">
+					<label for="Detail">Detail</label>
+					<textarea name="detail" id="Detail"rows="10"></textarea>
+				</div>
+				<div class="form-input">
+					<a href="" class="button is-light">CANCEL</a>
+					<button type="submit" class="button is-green">SAVE</button>
+				</div>
+			</form>
+		</main>
+		<footer class="border">Footer</footer>
+
+</body>
+
+	<script>
+		$( "form#add" ).submit(function( event ) {
+			var formData = JSON.stringify($("#add").serializeArray());
+    		console.log(items);
+			alert(items);
+			$.ajax({
+			  type: "POST",
+			  url: "http://agile-cliffs-83142.herokuapp.com/api/news",
+			  data: {
+				title: "formData",
+				detail: "formData",
+			  },
+			  success: function(data) { alert('success: ' + data); },
+			  dataType: "json",
+			  contentType : "application/json"
+			});
+		});
+	</script>
+</html>

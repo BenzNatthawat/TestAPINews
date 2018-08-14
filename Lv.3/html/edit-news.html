@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>News Post System</title>
+	<link rel="stylesheet" href="../css/make.css">
+
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+		<header class="border">
+			logo
+		</header>
+		<main class="border">
+			<div id="news"></div>
+			<form id="add" action="">
+				<div class="form-input">
+					<label for="Title">Title</label>
+					<input id="Title" name="title" type="text">
+				</div>
+				<div class="form-input">
+					<label for="Detail">Detail</label>
+					<textarea name="detail" id="Detail"rows="10"></textarea>
+				</div>
+				<div class="form-input">
+					<a href="" class="button is-light">CANCEL</a>
+					<button type="submit" class="button is-green">SAVE</button>
+				</div>
+			</form>
+		</main>
+		<footer class="border">Footer</footer>
+
+</body>
+
+<script type="text/javascript">
+$( document ).ready(function() {
+(function() {
+	var target = window.location.href.split('?')[1];
+	var search = window.location.search;
+	console.log(search);
+  var newsAPI = "http://agile-cliffs-83142.herokuapp.com/api/news/"+target;
+  $.getJSON( newsAPI, {
+    title: "title",
+    detail: "detail",
+    id: "id"
+  })
+    .done(function( data ) {
+		$.each( data, function( i, item ) {
+			console.log(item.title);
+			console.log(item.detail);
+		});
+    });
+})();
+});
+</script>
+</html>
